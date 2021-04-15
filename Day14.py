@@ -24,6 +24,7 @@ def initializePlugin(plugin):
     version = "1.0.0"
 
     om.MFnPlugin(plugin, vendor, version)
+    print 'Hello Maya'
 
 def uninitializePlugin(plugin):
     """
@@ -37,22 +38,3 @@ def uninitializePlugin(plugin):
     pass
 
 
-if __name__ == "__main__":
-    """
-    For Development Only
-
-    Specialized code that can be executed through the script editor to speed up the development process.
-
-    For example: scene cleanup, reloading the plugin, loading a test scene
-    """
-
-    # Any code required before unloading the plug-in (e.g. creating a new scene)
-
-
-    # Reload the plugin
-    plugin_name = "empty_plugin.py"
-    cmds.evalDeferred('if cmds.pluginInfo("{0}", q=True, loaded=True): cmds.unloadPlugin("{0}")'.format(plugin_name))
-    cmds.evalDeferred('if not cmds.pluginInfo("{0}", q=True, loaded=True): cmds.loadPlugin("{0}")'.format(plugin_name))
-
-
-    # Any setup code to help speed up testing (e.g. loading a test scene)
